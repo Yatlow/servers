@@ -13,7 +13,7 @@ export default function ServerCard(server: ServerCardProps) {
     async function toggleServerStatus() {
         const newStatus = server.is_active === 0 ? 1 : 0;
         try {
-            const result = await axios.post("http://localhost:5200/api/server/status", { id:server.id, is_active:newStatus});
+            const result = await axios.post("https://servers-server-adds.onrender.com/api/server/status", { id:server.id, is_active:newStatus});
             if (result.data.changedRows){
                 server.setState((prevState:ServerListState) => ({ ...prevState, err:false, refresh:!prevState.refresh }));
             }

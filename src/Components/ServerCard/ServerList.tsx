@@ -20,7 +20,8 @@ export default function ServerList() {
     useEffect(() => {
         async function fetchServers() {
             try {
-                const result = await axios.get("http://localhost:5200/api/servers");
+                const result = await axios.get("https://servers-server-adds.onrender.com/api/servers");
+                // const result = await axios.get("http://localhost:5200/api/servers");
                 setState((prevState) => ({ ...prevState, servers: result.data }));
             } catch (error: any) {
                 console.log(error)
